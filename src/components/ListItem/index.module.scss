@@ -1,0 +1,90 @@
+@import '../../mixins';
+@import '../../variables';
+
+.item {
+  padding: 1.3rem 1rem;
+  background-color: $canvas;
+  border-radius: 0.625rem;
+  border: 0.125rem solid $border-primary;
+  max-width: 50rem;
+  width: 100%;
+  margin: auto;
+
+  @include respond-to('tablet') {
+    width: 31.25rem;
+  }
+
+  @include respond-to('phone') {
+    width: 18rem;
+  }
+
+  @include flex-container(column);
+
+  &:hover {
+    // background-color: $background-hover;
+    cursor: pointer;
+  }
+
+  .header {
+    border: none;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 6rem auto;
+
+    .avatar {
+      border-radius: 50%;
+      border: 0.125rem solid #8d8d95;
+      width: 5rem;
+    }
+
+    .content {
+      height: 100%;
+      @include flex-container(column, space-evenly, start);
+
+      .name {
+        color: $main-color;
+        font-size: 1.2rem;
+        font-weight: 650;
+        margin: 0;
+
+        @include respond-to('phone') {
+          font-size: 1rem;
+        }
+      }
+
+      .role {
+        margin-top: 0.2rem;
+        color: $main-color;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 0;
+
+        @include respond-to('phone') {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .description {
+    margin: 0 0 0 6rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    color: $main-color;
+    font-weight: 500;
+    font-size: 1rem;
+    @include respond-to('phone') {
+      font-size: 0.8rem;
+    }
+  }
+
+  .description.show {
+    transform: scaleY(1);
+    opacity: 1;
+    height: auto;
+  }
+}

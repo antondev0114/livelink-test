@@ -1,0 +1,19 @@
+@import '../../mixins';
+@import '../../variables';
+
+.wrapper {
+  background: $background-main;
+  display: grid;
+  gap: 1rem;
+  padding: 0.5rem;
+  height: calc(100vh - 8rem);
+  overflow: auto;
+}
+
+.loading {
+  background-color: $background-main;
+  height: calc(100vh - 8rem);
+  display: flex;
+  justify-content: center;
+  padding-top: 10rem;
+}

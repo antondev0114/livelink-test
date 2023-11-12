@@ -1,0 +1,24 @@
+@mixin respond-to($breakpoint) {
+  $breakpoints: (
+    'phone': 'max-width: 768px',
+    'tablet': 'max-width: 900px',
+    'desktop': 'max-width: 1200px',
+  );
+
+  $media-query: map-get($breakpoints, $breakpoint);
+
+  @if $media-query != null {
+    @media (#{$media-query}) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint defined for #{$breakpoint}.";
+  }
+}
+
+@mixin flex-container($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}

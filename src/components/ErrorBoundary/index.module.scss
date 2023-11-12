@@ -1,0 +1,11 @@
+@import '../../mixins';
+@import '../../variables';
+
+.wrapper {
+  background-color: $background-main;
+  height: 100vh;
+  @include flex-container(column, center, center);
+  h1 {
+    margin: 0;
+  }
+}
